@@ -1,0 +1,407 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CyberShield — Project Report</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1f2328;
+    background: #ffffff;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 32px 64px;
+  }
+
+  /* ── Cover ── */
+  .cover {
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 32px;
+    margin-bottom: 36px;
+  }
+  .cover-badge {
+    display: inline-block;
+    background: #0d1117;
+    color: #58a6ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .cover h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1f2328;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cover .subtitle {
+    font-size: 15px;
+    color: #57606a;
+    margin-bottom: 20px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .meta-cell {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .meta-cell .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #57606a;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .meta-cell .value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2328;
+  }
+
+  /* ── Sections ── */
+  section { margin-bottom: 36px; }
+
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #1f2328;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-left: 3px solid #3b82d4;
+    padding-left: 10px;
+    margin-bottom: 14px;
+  }
+
+  h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1f2328;
+    margin: 16px 0 6px;
+  }
+
+  p { margin-bottom: 10px; color: #1f2328; }
+
+  /* ── Feature table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+  thead tr {
+    background: #f7f8fa;
+  }
+  th {
+    text-align: left;
+    padding: 9px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #57606a;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* ── Code block ── */
+  .code-block {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-family: "Consolas", "Menlo", monospace;
+    font-size: 13px;
+    color: #1f2328;
+    margin: 10px 0 14px;
+    white-space: pre;
+  }
+
+  /* ── Highlight boxes ── */
+  .box {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+  .box-blue  { background: #eff6ff; border-left: 3px solid #3b82d4; }
+  .box-green { background: #f0fdf4; border-left: 3px solid #22c55e; }
+  .box-amber { background: #fffbeb; border-left: 3px solid #f59e0b; }
+
+  /* ── Pill tags ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #57606a;
+    font-weight: 500;
+  }
+
+  /* ── Numbered steps ── */
+  ol { padding-left: 20px; }
+  ol li { margin-bottom: 6px; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    font-size: 12px;
+    color: #57606a;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  
+  <div class="cover">
+    <div class="cover-badge">🛡️ Cybersecurity Project</div>
+    <h1>CyberShield<br />Security Dashboard</h1>
+    <p class="subtitle">A beginner-friendly, interactive security monitoring dashboard built with Python and Streamlit.</p>
+    <div class="meta-grid">
+      <div class="meta-cell"><div class="label">Project Name</div><div class="value">CyberShield</div></div>
+      <div class="meta-cell"><div class="label">Language</div><div class="value">Python 3</div></div>
+      <div class="meta-cell"><div class="label">Framework</div><div class="value">Streamlit + Pandas</div></div>
+      <div class="meta-cell"><div class="label">Source File</div><div class="value">app.py (single file)</div></div>
+      <div class="meta-cell"><div class="label">Theme</div><div class="value">Dark (custom CSS)</div></div>
+      <div class="meta-cell"><div class="label">Version</div><div class="value">1.0</div></div>
+    </div>
+  </div>
+
+  
+  <section>
+    <h2>1. Project Overview</h2>
+    <p>
+      CyberShield is a web-based security dashboard designed to give an analyst an instant, visual overview of authentication activity across monitored systems. It was built as a learning project to demonstrate core cybersecurity monitoring concepts using only beginner-friendly Python code — no machine learning, no external databases, and no complex frameworks.
+    </p>
+    <p>
+      The entire application lives in a <strong>single file, <code>app.py</code></strong>, and runs locally with one command. Despite its simplicity, it implements a real detection rule, live-computed metrics, interactive charts, and sidebar filters — all the core ingredients of a production security information dashboard.
+    </p>
+    <div class="box box-blue">
+      <strong>Core idea:</strong> Monitor login events. Count failures per IP address. If the same IP fails five or more times, flag it as a potential brute-force attack and alert the analyst.
+    </div>
+  </section>
+
+  
+  <section>
+    <h2>2. Objectives</h2>
+    <table>
+      <thead><tr><th>#</th><th>Objective</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Build a security-themed dashboard with a dark, modern UI</td><td>✅ Done</td></tr>
+        <tr><td>2</td><td>Display four real-time metric cards (total, successful, failed, suspicious)</td><td>✅ Done</td></tr>
+        <tr><td>3</td><td>Load 20 realistic fictional login records with a button</td><td>✅ Done</td></tr>
+        <tr><td>4</td><td>Implement a brute-force detection rule using plain Python</td><td>✅ Done</td></tr>
+        <tr><td>5</td><td>Show visual warning banners for flagged IPs</td><td>✅ Done</td></tr>
+        <tr><td>6</td><td>Add two bar charts for visual analysis</td><td>✅ Done</td></tr>
+        <tr><td>7</td><td>Add sidebar filters for risk level and login result</td><td>✅ Done</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  
+  <section>
+    <h2>3. Technology Stack</h2>
+    <table>
+      <thead><tr><th>Tool / Library</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Python 3</strong></td><td>Core programming language; all logic written in plain Python</td></tr>
+        <tr><td><strong>Streamlit</strong></td><td>Web framework that turns a Python script into an interactive browser app</td></tr>
+        <tr><td><strong>Pandas</strong></td><td>Data manipulation — filtering records, counting results, grouping by IP</td></tr>
+        <tr><td><strong>Custom CSS</strong></td><td>Dark theme, styled metric cards, table formatting — injected via <code>st.markdown()</code></td></tr>
+      </tbody>
+    </table>
+    <div class="tags">
+      <span class="tag">Python 3</span>
+      <span class="tag">Streamlit</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">HTML/CSS</span>
+      <span class="tag">Single-file app</span>
+      <span class="tag">No database</span>
+      <span class="tag">No ML</span>
+    </div>
+  </section>
+
+  
+  <section>
+    <h2>4. Features &amp; Implementation</h2>
+
+    <h3>4.1 — Metric Cards</h3>
+    <p>
+      Four cards sit at the top of the dashboard and update automatically whenever records are loaded. They show <strong>Total Logins</strong>, <strong>Successful Logins</strong>, <strong>Failed Logins</strong>, and <strong>Suspicious Activities</strong>. All values are computed live from the data in Streamlit session state — there are no hardcoded display numbers.
+    </p>
+
+    <h3>4.2 — Sample Data (20 Login Records)</h3>
+    <p>
+      A list of 20 fictional login events is embedded directly in the code. Each record has four fields: <em>Time</em>, <em>Username</em>, <em>IP Address</em>, and <em>Result</em> (Success / Failed). The data includes a deliberate pattern: IP address <code>192.168.4.77</code> makes five rapid failed attempts against the <code>admin</code> and <code>root</code> accounts — simulating a real brute-force attack.
+    </p>
+    <p>Records are loaded into <code>st.session_state</code> by clicking the <strong>⚡ Generate Sample Data</strong> button, which keeps them alive across page reruns.</p>
+
+    <h3>4.3 — Brute-Force Detection Rule</h3>
+    <p>The detection logic is written entirely with <code>for</code> loops and <code>if</code> statements — no external libraries:</p>
+    <div class="code-block">SUSPICIOUS_THRESHOLD = 5   # adjust to change sensitivity
+
+def find_suspicious_ips(records):
+    failed_counts = {}
+    for record in records:
+        if record["Result"] == "Failed":
+            ip = record["IP Address"]
+            if ip in failed_counts:
+                failed_counts[ip] += 1
+            else:
+                failed_counts[ip] = 1
+    suspicious = {}
+    for ip, count in failed_counts.items():
+        if count &gt;= SUSPICIOUS_THRESHOLD:
+            suspicious[ip] = count
+    return suspicious</div>
+    <p>Any IP that reaches the threshold triggers a prominent warning banner on the dashboard and increments the Suspicious Activities counter.</p>
+
+    <h3>4.4 — Charts</h3>
+    <p>Two bar charts appear below the Generate button once data is loaded:</p>
+    <table>
+      <thead><tr><th>Chart</th><th>What it shows</th><th>Security insight</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Login Results</strong></td>
+          <td>One bar for Success, one for Failed</td>
+          <td>A disproportionately large Failed bar signals abnormal login pressure</td>
+        </tr>
+        <tr>
+          <td><strong>Failures by IP</strong></td>
+          <td>One bar per IP address, height = failure count</td>
+          <td>A single IP towering above the rest instantly identifies the attacker</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4.5 — Sidebar Filters</h3>
+    <p>Two dropdowns in the left sidebar let the analyst control what is displayed:</p>
+    <table>
+      <thead><tr><th>Filter</th><th>Options</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Alert Risk Level</strong></td><td>All / High Risk Only</td><td>Shows or hides the suspicious IP warning banners</td></tr>
+        <tr><td><strong>Login Result</strong></td><td>All / Success / Failed</td><td>Filters rows in the Login Records table</td></tr>
+      </tbody>
+    </table>
+    <p>A caption below the table always shows how many rows are visible out of the total, e.g. <em>"Showing 6 of 20 records · Filter: Failed"</em>.</p>
+  </section>
+
+  
+  <section>
+    <h2>5. How to Run the Project</h2>
+    <ol>
+      <li>Ensure Python 3 is installed on the machine.</li>
+      <li>Install the required libraries (one-time setup):</li>
+    </ol>
+    <div class="code-block">pip install streamlit pandas</div>
+    <ol>
+      <li>Navigate to the folder containing <code>app.py</code>.</li>
+      <li>Start the application:</li>
+    </ol>
+    <div class="code-block">streamlit run app.py</div>
+    <ol>
+      <li>The browser opens automatically at <code>http://localhost:8501</code>.</li>
+      <li>Click <strong>⚡ Generate Sample Data</strong> to populate the dashboard.</li>
+    </ol>
+    <div class="box box-green">
+      <strong>No configuration required.</strong> The app runs entirely from <code>app.py</code>. No database, no API keys, no environment variables.
+    </div>
+  </section>
+
+  
+  <section>
+    <h2>6. Project Structure</h2>
+    <div class="code-block">cyber/
+└── app.py          ← entire application (267 lines)</div>
+    <p>The file is organised into clearly commented sections:</p>
+    <table>
+      <thead><tr><th>Section</th><th>Lines</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Page config &amp; CSS</td><td>1 – 61</td><td>App title, layout, dark theme styling</td></tr>
+        <tr><td>Sample records</td><td>63 – 86</td><td>20 fictional login events including attack pattern</td></tr>
+        <tr><td>Session state</td><td>88 – 90</td><td>Persist records between Streamlit reruns</td></tr>
+        <tr><td>Detection rule</td><td>100 – 128</td><td><code>find_suspicious_ips()</code> function</td></tr>
+        <tr><td>Metrics + charts</td><td>131 – 193</td><td>Cards and two bar charts</td></tr>
+        <tr><td>Filters + table</td><td>195 – 266</td><td>Sidebar dropdowns, warning banners, records table</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  
+  <section>
+    <h2>7. Security Concepts Demonstrated</h2>
+    <table>
+      <thead><tr><th>Concept</th><th>How it appears in CyberShield</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Brute-force attack</strong></td><td>IP 192.168.4.77 makes 5 rapid failed attempts on <code>admin</code> and <code>root</code></td></tr>
+        <tr><td><strong>Threshold-based alerting</strong></td><td>Warning fires when a single IP exceeds 5 failures (<code>SUSPICIOUS_THRESHOLD</code>)</td></tr>
+        <tr><td><strong>Authentication logging</strong></td><td>Each login event is recorded with time, username, IP, and outcome</td></tr>
+        <tr><td><strong>Anomaly detection</strong></td><td>Failure counts per IP are compared to a baseline threshold</td></tr>
+        <tr><td><strong>Security dashboard</strong></td><td>Metrics, alerts, charts, and filters mirror a real SIEM interface</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  
+  <section>
+    <h2>8. Limitations &amp; Future Improvements</h2>
+    <div class="box box-amber">
+      <strong>Current limitations:</strong> Data is fictional and hardcoded. The app resets when restarted. There is no user authentication, no real network connection, and no persistent storage.
+    </div>
+    <table>
+      <thead><tr><th>Improvement</th><th>What it would add</th></tr></thead>
+      <tbody>
+        <tr><td>Connect to a real log database</td><td>Replace sample data with live login events from a server</td></tr>
+        <tr><td>Add a time-series line chart</td><td>Show login volume over time to spot unusual spikes</td></tr>
+        <tr><td>Export to CSV</td><td>Let analysts download filtered records for further investigation</td></tr>
+        <tr><td>Email or SMS alerts</td><td>Notify a security team when a suspicious IP is detected</td></tr>
+        <tr><td>IP geolocation</td><td>Show which country each IP originates from</td></tr>
+        <tr><td>User authentication</td><td>Protect the dashboard itself behind a login screen</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  
+  <section>
+    <h2>9. Conclusion</h2>
+    <p>
+      CyberShield successfully demonstrates how a functional security monitoring dashboard can be built from scratch using only beginner-level Python. With fewer than 270 lines of code and two standard libraries, the project covers metric reporting, rule-based threat detection, data visualisation, and interactive filtering.
+    </p>
+    <p>
+      The project is intentionally simple so that every line of code is understandable to a beginner, while still reflecting the real-world structure of security information and event management (SIEM) tools. It provides a solid foundation that can be extended with live data sources, additional detection rules, and richer visualisations as skills grow.
+    </p>
+  </section>
+
+  <div class="footer">Made with IBM Bob</div>
+</div>
+</body>
+</html>
